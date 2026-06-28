@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Gilded Lily Burlesque Fan Tribute</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --noir:       #0e0a0a;
+      --deep-plum:  #1a0a1e;
+      --garnet:     #8b1a2e;
+      --gold:       #c9a84c;
+      --champagne:  #f0dfa0;
+      --ivory:      #f8f1e4;
+      --smoke:      #b0a8a0;
+      --curtain:    #3d0d1a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--noir);
+      color: var(--ivory);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    .navbar-gilded {
+      background: rgba(7,3,5,0.95) !important;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      backdrop-filter: blur(14px);
+    }
+    .navbar-brand-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--champagne) !important;
+      font-size: 1.15rem;
+    }
+    .nav-link-g {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--smoke) !important;
+      padding: 0.45rem 0.85rem !important;
+      transition: color .25s;
+    }
+    .nav-link-g:hover, .nav-link-g.active { color: var(--gold) !important; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--deep-plum);
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 0 5rem;
+      text-align: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 55% 70% at 50% 60%,
+        rgba(201,168,76,.1) 0%, rgba(139,26,46,.06) 40%, transparent 70%);
+    }
+    /* tassel top bar */
+    .tassel-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 30px;
+      background: repeating-linear-gradient(
+        90deg, var(--gold) 0, var(--gold) 3px, transparent 3px, transparent 16px
+      );
+      opacity: .45;
+    }
+    .tassel-bar::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 0; right: 0; height: 22px;
+      background: repeating-linear-gradient(
+        90deg, transparent 0, transparent 5px,
+        var(--gold) 5px, var(--gold) 8px,
+        transparent 8px, transparent 13px,
+        var(--gold) 13px, var(--gold) 16px
+      );
+      opacity: .3;
+    }
+    .page-eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .72rem;
+      letter-spacing: .4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      display: block;
+      position: relative;
+    }
+    .page-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      font-style: italic;
+      color: var(--champagne);
+      line-height: 1;
+      position: relative;
+      text-shadow: 0 0 50px rgba(201,168,76,.3);
+      margin-bottom: .6rem;
+    }
+    .page-hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem,2vw,1.4rem);
+      color: var(--smoke);
+      position: relative;
+      max-width: 560px;
+      margin: .8rem auto 0;
+      line-height: 1.7;
+    }
+
+    /* ── SHARED UTIL ── */
+    section { padding: 5.5rem 0; }
+    .sec-eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .68rem;
+      letter-spacing: .4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: .9rem;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem,3.5vw,2.9rem);
+      font-style: italic;
+      font-weight: 700;
+      color: var(--champagne);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .gold-rule {
+      width: 50px; height: 1px;
+      background: var(--gold);
+      opacity: .55;
+      margin: 1.4rem 0;
+    }
+    .gold-rule.center { margin-left: auto; margin-right: auto; }
+    .body-copy {
+      color: var(--smoke);
+      line-height: 1.9;
+      font-size: 1.02rem;
+    }
+    .ornament { text-align:center; color: var(--gold); opacity:.45; font-size:1.1rem; letter-spacing:.6em; padding:.3rem 0; }
+
+    /* ── ORIGIN STORY ── */
+    .origin-section { background: var(--deep-plum); }
+
+    .pull-quote {
+      border-left: 2px solid var(--garnet);
+      padding: 1rem 0 1rem 1.8rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.2rem,2vw,1.65rem);
+      color: var(--champagne);
+      line-height: 1.55;
+      margin: 2rem 0;
+    }
+    .pull-quote cite {
+      display: block;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .68rem;
+      letter-spacing: .2em;
+      color: var(--gold);
+      font-style: normal;
+      margin-top: .75rem;
+      text-transform: uppercase;
+    }
+
+    /* glowing stat boxes */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1px;
+      margin-top: 2.5rem;
+    }
+    .stat-box {
+      flex: 1 1 120px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(201,168,76,.18);
+      padding: 1.4rem 1rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .62rem;
+      letter-spacing: .2em;
+      color: var(--smoke);
+      text-transform: uppercase;
+      margin-top: .4rem;
+    }
+
+    /* ── WHAT IS BURLESQUE ── */
+    .what-section { background: var(--noir); }
+
+    .definition-block {
+      border: 1px solid rgba(201,168,76,.15);
+      padding: 2.5rem;
+      position: relative;
+    }
+    .definition-block::before {
+      content: 'bur·lesque';
+      position: absolute;
+      top: -0.75rem;
+      left: 1.5rem;
+      background: var(--noir);
+      padding: 0 .6rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .65rem;
+      letter-spacing: .3em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    /* ── FOUNDER ── */
+    .founder-section { background: var(--curtain); }
+
+    .founder-frame {
+      border: 1px solid rgba(201,168,76,.25);
+      padding: 2.5rem;
+      position: relative;
+      height: 100%;
+    }
+    .founder-frame::before,
+    .founder-frame::after {
+      content: '';
+      position: absolute;
+      width: 20px; height: 20px;
+    }
+    .founder-frame::before {
+      top: 10px; left: 10px;
+      border-top: 1px solid var(--gold);
+      border-left: 1px solid var(--gold);
+    }
+    .founder-frame::after {
+      bottom: 10px; right: 10px;
+      border-bottom: 1px solid var(--gold);
+      border-right: 1px solid var(--gold);
+    }
+
+    .founder-icon {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: var(--garnet);
+      border: 1px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .founder-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-style: italic;
+      color: var(--champagne);
+      margin-bottom: .2rem;
+    }
+    .founder-title {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .68rem;
+      letter-spacing: .3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.3rem;
+    }
+
+    .festival-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .festival-list li {
+      color: var(--smoke);
+      font-size: .92rem;
+      padding: .4rem 0;
+      border-bottom: 1px solid rgba(201,168,76,.1);
+      display: flex;
+      align-items: baseline;
+      gap: .8rem;
+    }
+    .festival-list li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: .6rem;
+      flex-shrink: 0;
+    }
+    .festival-list li:last-child { border-bottom: none; }
+
+    /* ── TROUPE DNA ── */
+    .dna-section { background: var(--deep-plum); }
+
+    .dna-card {
+      border: 1px solid rgba(201,168,76,.15);
+      padding: 1.8rem 1.6rem;
+      height: 100%;
+      transition: border-color .3s, transform .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .dna-card:hover {
+      border-color: rgba(201,168,76,.45);
+      transform: translateY(-3px);
+    }
+    .dna-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--garnet), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .dna-card:hover::after { opacity: 1; }
+    .dna-icon {
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
+    .dna-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--champagne);
+      margin-bottom: .6rem;
+    }
+
+    /* ── PERFORMER NICKNAMES ── */
+    .cast-section { background: var(--noir); }
+
+    .cast-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1px;
+      background: rgba(201,168,76,.1);
+      border: 1px solid rgba(201,168,76,.1);
+    }
+    .cast-cell {
+      background: var(--noir);
+      padding: 1.6rem 1.4rem;
+      transition: background .3s;
+    }
+    .cast-cell:hover { background: rgba(26,10,30,.8); }
+    .cast-nickname {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--champagne);
+      margin-bottom: .15rem;
+    }
+    .cast-handle {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .65rem;
+      letter-spacing: .2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    .cast-desc {
+      color: var(--smoke);
+      font-size: .88rem;
+      line-height: 1.65;
+    }
+
+    /* ── MISSION & VALUES ── */
+    .mission-section {
+      background: var(--curtain);
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-section::before {
+      content:'';
+      position:absolute; inset:0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,.05), transparent 70%);
+    }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .value-item {
+      border: 1px solid rgba(201,168,76,.25);
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .value-emoji { font-size: 1.5rem; margin-bottom: .5rem; }
+    .value-name {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .68rem;
+      letter-spacing: .2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: .35rem;
+    }
+    .value-body {
+      color: var(--smoke);
+      font-size: .85rem;
+      line-height: 1.6;
+    }
+
+    /* ── AWARDS RIBBON ── */
+    .awards-section { background: var(--deep-plum); }
+
+    .award-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.3rem 0;
+      border-bottom: 1px solid rgba(201,168,76,.1);
+    }
+    .award-row:last-child { border-bottom: none; }
+    .award-year {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .68rem;
+      letter-spacing: .25em;
+      color: var(--gold);
+      min-width: 48px;
+      text-transform: uppercase;
+    }
+    .award-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--champagne);
+      flex: 1;
+    }
+    .award-source {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .62rem;
+      letter-spacing: .2em;
+      color: var(--smoke);
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    /* ── TRIBUTE STATEMENT ── */
+    .tribute-section {
+      background: var(--noir);
+      text-align: center;
+      padding: 5rem 0;
+    }
+    .tribute-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem,3vw,2.4rem);
+      font-style: italic;
+      color: var(--champagne);
+      max-width: 680px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.4;
+    }
+
+    /* ── BTN ── */
+    .btn-gilded {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .75rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      padding: .8rem 2rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      background: transparent;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-gilded::before {
+      content: '';
+      position: absolute;
+      top:0; left:-100%; right:100%; bottom:0;
+      background: rgba(201,168,76,.12);
+      transition: all .4s;
+    }
+    .btn-gilded:hover::before { left:0; right:0; }
+    .btn-gilded:hover { color: var(--champagne); border-color: var(--champagne); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #070305;
+      padding: 3.5rem 0 2rem;
+      border-top: 1px solid rgba(201,168,76,.18);
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--champagne);
+    }
+    .footer-sub {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .65rem;
+      letter-spacing: .3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .footer-link {
+      display: block;
+      color: var(--smoke);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: .6rem;
+      transition: color .25s;
+    }
+    .footer-link:hover { color: var(--gold); }
+    .footer-disclaimer {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .72rem;
+      color: rgba(176,168,160,.4);
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(201,168,76,.1);
+      letter-spacing: .05em;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 4rem 0; }
+      .stat-box { flex: 1 1 45%; }
+      .award-source { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="navbar navbar-expand-lg navbar-gilded sticky-top">
+  <div class="container">
+    <a class="navbar-brand navbar-brand-text" href="gilded-lily-burlesque.html">Gilded Lily Burlesque</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+      style="color:var(--gold);">☰</button>
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
+      <ul class="navbar-nav gap-1">
+        <li class="nav-item"><a class="nav-link nav-link-g" href="gilded-lily-burlesque.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-g active" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-g" href="gilded-lily-burlesque.html#performers">Performers</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-g" href="gilded-lily-burlesque.html#shows">Shows</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-g" href="gilded-lily-burlesque.html#venues">Venues</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-g" href="gilded-lily-burlesque.html#press">Press</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ PAGE HERO ══ -->
+<div class="page-hero">
+  <div class="tassel-bar"></div>
+  <div class="container position-relative">
+    <span class="page-eyebrow">Fan Tribute · Gilded Lily Burlesque</span>
+    <h1 class="page-hero-title">About the Troupe</h1>
+    <p class="page-hero-sub">Nearly two decades of glitter, grit, and genuine artistry — this is the story of Baltimore's most celebrated burlesque company.</p>
+  </div>
+</div>
+
+<!-- ══ QUICK NAV ANCHORS ══ -->
+<div style="background: rgba(26,10,30,.9); border-bottom: 1px solid rgba(201,168,76,.12); padding: .8rem 0; text-align:center;">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem;">
+      <a href="#origin" style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.25em; color:var(--smoke); text-decoration:none; text-transform:uppercase; transition:color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--smoke)'">Origin Story</a>
+      <a href="#what-is" style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.25em; color:var(--smoke); text-decoration:none; text-transform:uppercase; transition:color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--smoke)'">What Is Burlesque</a>
+      <a href="#founder" style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.25em; color:var(--smoke); text-decoration:none; text-transform:uppercase; transition:color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--smoke)'">Maria Bella</a>
+      <a href="#dna" style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.25em; color:var(--smoke); text-decoration:none; text-transform:uppercase; transition:color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--smoke)'">The Troupe</a>
+      <a href="#cast" style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.25em; color:var(--smoke); text-decoration:none; text-transform:uppercase; transition:color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--smoke)'">Cast</a>
+      <a href="#mission" style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.25em; color:var(--smoke); text-decoration:none; text-transform:uppercase; transition:color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--smoke)'">Mission</a>
+      <a href="#awards" style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.25em; color:var(--smoke); text-decoration:none; text-transform:uppercase; transition:color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--smoke)'">Awards</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1 — ORIGIN STORY
+══════════════════════════════════════════════ -->
+<section class="origin-section" id="origin">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-6">
+        <span class="sec-eyebrow">How It All Began</span>
+        <h2 class="sec-title">The Origin Story of<br>Baltimore's Gilded Lily</h2>
+        <div class="gold-rule"></div>
+        <p class="body-copy">
+          The roots of Gilded Lily Burlesque reach back to the early 2000s, when Baltimore's first
+          wave of the neo-burlesque revival was just beginning to bloom. Trailblazer <strong style="color:var(--champagne);">Trixie Little</strong>
+          and her partner <strong style="color:var(--champagne);">Evil Hate Monkey</strong> lit up intimate stages around Charm City,
+          conjuring something that felt both historical and radical — the glamour and tease of classic
+          burlesque, reimagined as a modern art form.
+        </p>
+        <p class="body-copy" style="margin-top:1.2rem;">
+          "At the time, I remember wanting the quaintness of a burlesque show in an intimate space,"
+          Trixie would later recall. "It seemed so romantic, but you couldn't find it anywhere, so we
+          started creating the work we wanted to see." Through their own performances and burlesque
+          bootcamp classes, Trixie and Monkey birthed a new generation of Baltimore performers — and
+          among their most devoted students was a dancer, musician, and natural-born producer named
+          <strong style="color:var(--champagne);">Maria Bella</strong>.
+        </p>
+
+        <blockquote class="pull-quote">
+          "I fell in love. It was funny and theatrical.<br>I knew I needed to start my own troupe."
+          <cite>— Maria Bella, Founder of Gilded Lily Burlesque</cite>
+        </blockquote>
+
+        <p class="body-copy">
+          In <strong style="color:var(--champagne);">2007</strong>, Maria launched Gilded Lily Burlesque —
+          and what began as one woman's passion project quickly grew into Baltimore's most celebrated,
+          longest-running burlesque troupe. Nearly two decades later, Gilded Lily has evolved through
+          multiple iterations, assembled a sisterhood of extraordinary performers, earned national acclaim,
+          and established itself as a permanent fixture in Baltimore's creative identity.
+        </p>
+      </div>
+
+      <div class="col-lg-5 offset-lg-1">
+        <!-- Stats -->
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-num">2007</div>
+            <div class="stat-label">Founded</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">17+</div>
+            <div class="stat-label">Years Running</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">14</div>
+            <div class="stat-label">Annual Tassels Shows</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">#1</div>
+            <div class="stat-label">Longest-Running Baltimore Troupe</div>
+          </div>
+        </div>
+
+        <!-- Context card -->
+        <div style="border: 1px solid rgba(201,168,76,.18); padding: 2rem; margin-top: 1px; position:relative;">
+          <div style="position:absolute; top:-1px; left:1.5rem; right:1.5rem; height:1px; background:linear-gradient(to right, transparent, var(--gold), transparent);"></div>
+          <p class="sec-eyebrow">Baltimore's Burlesque Legacy</p>
+          <p class="body-copy" style="font-size:.94rem;">
+            Long before Gilded Lily, Baltimore had its own burlesque history. The city's legendary
+            <strong style="color:var(--champagne);">"The Block"</strong> — a stretch of East Baltimore
+            Street — housed a thriving burlesque and vaudeville scene in the early-to-mid 20th century,
+            making Charm City one of the great burlesque cities of its era.
+          </p>
+          <p class="body-copy" style="font-size:.94rem; margin-top:.9rem;">
+            By the time that glitter faded, The Block had given way to strip clubs and vacant storefronts.
+            But Baltimore's love of performance never died. When the neo-burlesque revival of the 1990s
+            arrived, Baltimore was primed to lead it — and Gilded Lily became the standard-bearer of
+            that revival in Charm City.
+          </p>
+          <div style="position:absolute; bottom:-1px; left:1.5rem; right:1.5rem; height:1px; background:linear-gradient(to right, transparent, var(--garnet), transparent);"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2 — WHAT IS BURLESQUE
+══════════════════════════════════════════════ -->
+<section class="what-section" id="what-is">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="sec-eyebrow">The Art Form</span>
+      <h2 class="sec-title">What Is Neo-Burlesque?</h2>
+      <div class="gold-rule center"></div>
+    </div>
+
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-5">
+        <div class="definition-block">
+          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.15rem; color:var(--smoke); line-height:1.85; margin-bottom:1rem;">
+            <em style="color:var(--champagne);">noun, often adjective</em><br>
+            Derived from Romance languages, the term originally referred to a theatrical production
+            that used exaggeration and mockery to ridicule a serious subject. In America, burlesque
+            evolved into a distinct art form combining comedy, theater, striptease, magic, drag,
+            and variety performance.
+          </p>
+          <div class="gold-rule"></div>
+          <p class="body-copy" style="font-size:.94rem;">
+            Burlesque dwindled in the 1960s and 70s, but returned with force in the 1990s through
+            the <strong style="color:var(--champagne);">neo-burlesque movement</strong> — a reinvention
+            that embraced the old traditions of satin and skin, then fused them with theatrical
+            story lines, variety show elements, fierce feminist politics, and plenty of off-kilter humor.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 offset-lg-1">
+        <h3 style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.5rem; color:var(--champagne); margin-bottom:1rem;">More Than a Strip Show</h3>
+        <p class="body-copy">
+          Neo-burlesque is not pornography, and it's not a strip club. It is a form of performance art
+          that uses the body as a medium for storytelling, social commentary, and radical self-expression.
+          As Gilded Lily's GiGi Holliday has said: <em>"Burlesque is my own protest."</em>
+        </p>
+        <p class="body-copy" style="margin-top:1rem;">
+          What makes Gilded Lily's burlesque unique is the same thing that makes Baltimore unique:
+          it is <strong style="color:var(--champagne);">underdog, DIY, and deeply personal</strong>.
+          Performers design and sew their own costumes — sometimes spending hundreds of hours on
+          five minutes of stage time. Every act is a collaboration between craftsmanship and courage.
+        </p>
+        <p class="body-copy" style="margin-top:1rem;">
+          "Burlesque can really be anything you deem interesting, weird, or beautiful," says troupe
+          member Nona Narcisse. "It's this wonderful adult art project." Acts range from classic
+          striptease and cabaret homage to avant-garde theater, political commentary, live music
+          integration, and circus-style variety performance.
+        </p>
+
+        <div style="margin-top:2rem; display:flex; flex-wrap:wrap; gap:.6rem;">
+          <span style="border:1px solid rgba(201,168,76,.35); color:var(--champagne); font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.18em; text-transform:uppercase; padding:.45rem 1rem;">Classic Striptease</span>
+          <span style="border:1px solid rgba(201,168,76,.35); color:var(--champagne); font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.18em; text-transform:uppercase; padding:.45rem 1rem;">Cabaret & Variety</span>
+          <span style="border:1px solid rgba(201,168,76,.35); color:var(--champagne); font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.18em; text-transform:uppercase; padding:.45rem 1rem;">Live Music Acts</span>
+          <span style="border:1px solid rgba(201,168,76,.35); color:var(--champagne); font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.18em; text-transform:uppercase; padding:.45rem 1rem;">Political Performance</span>
+          <span style="border:1px solid rgba(201,168,76,.35); color:var(--champagne); font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.18em; text-transform:uppercase; padding:.45rem 1rem;">Drag & Boylesque</span>
+          <span style="border:1px solid rgba(201,168,76,.35); color:var(--champagne); font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.18em; text-transform:uppercase; padding:.45rem 1rem;">Avant-Garde Theater</span>
+          <span style="border:1px solid rgba(201,168,76,.35); color:var(--champagne); font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.18em; text-transform:uppercase; padding:.45rem 1rem;">Sideshow & Circus</span>
+          <span style="border:1px solid rgba(201,168,76,.35); color:var(--champagne); font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.18em; text-transform:uppercase; padding:.45rem 1rem;">Pop Culture Tribute</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3 — FOUNDER
+══════════════════════════════════════════════ -->
+<section class="founder-section" id="founder">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="sec-eyebrow">The Woman Behind the Curtain</span>
+      <h2 class="sec-title">Maria Bella</h2>
+      <div class="gold-rule center"></div>
+      <p style="color:var(--smoke); max-width:550px; margin:.8rem auto 0; font-style:italic; font-size:1.05rem;">
+        "Baltimore's Sicilian Queen" — founder, producer, dancer, trumpet player, and the heartbeat of Gilded Lily Burlesque.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-lg-4">
+        <div class="founder-frame">
+          <div class="founder-icon">🎺</div>
+          <div class="founder-name">Maria Bella</div>
+          <div class="founder-title">Founder · CEO · Producer · Performer</div>
+          <p class="body-copy" style="font-size:.94rem;">
+            Maria Bella is a musician, award-winning variety performer, and touring producer based in
+            Baltimore, MD. She founded Gilded Lily Burlesque in 2007 after falling in love with the art
+            form at Trixie Little's legendary Burlesque Bootcamp.
+          </p>
+          <div class="gold-rule"></div>
+          <p class="body-copy" style="font-size:.88rem;">
+            Her acts blend <strong style="color:var(--champagne);">classic cabaret, neo-burlesque, cultural
+            imagery, exotic flair, fantasy, and world dance technique</strong> — delivered with the flair
+            of a trumpet virtuoso who also happens to know exactly how to work a room.
+          </p>
+          <div class="gold-rule"></div>
+          <p style="font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.2em; color:var(--gold); text-transform:uppercase; margin-bottom:.5rem;">Dance Background</p>
+          <p class="body-copy" style="font-size:.85rem;">Erotica · Latin · Modern · Jazz · World Dance</p>
+          <p style="font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.2em; color:var(--gold); text-transform:uppercase; margin:.9rem 0 .5rem;">Music Background</p>
+          <p class="body-copy" style="font-size:.85rem;">Jazz · Cabaret · Classical · Blues · Soul</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div style="height:100%; display:flex; flex-direction:column; gap:1px;">
+
+          <div style="border:1px solid rgba(201,168,76,.15); padding:1.8rem; flex:1;">
+            <p class="sec-eyebrow">Baltimore Venues</p>
+            <p class="body-copy" style="font-size:.9rem;">
+              The Lyric Opera House · Creative Alliance · The Ottobar ·
+              Load of Fun Theater · The Windup Space · The Hippo ·
+              The Walters Art Gallery · Artscape · Baltimore PRIDE Festival ·
+              Baltimore Comic Con · Grand Central · Baltimore Soundstage ·
+              Ramshead Live in Annapolis · Erotic Arts Festival ·
+              Maryland Institute College of Art
+            </p>
+          </div>
+
+          <div style="border:1px solid rgba(201,168,76,.15); padding:1.8rem; flex:1;">
+            <p class="sec-eyebrow">Co-Producers & Touring Acts</p>
+            <p class="body-copy" style="font-size:.88rem;">
+              Trixie Little & Evil Hate Monkey · Kitten DeVille ·
+              The Pontani Sisters · Dirty Martini · Tigger ·
+              Wasabassco Burlesque · Perle Noir · Nasty Canasta ·
+              The Peek-a-boo Revue · Melody Sweets · Peekaboo Pointe ·
+              The Olde City Sideshow · The Carnivalesque Roadshow
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div style="border:1px solid rgba(201,168,76,.15); padding:1.8rem; height:100%;">
+          <p class="sec-eyebrow" style="margin-bottom:1rem;">Festival Appearances</p>
+          <ul class="festival-list">
+            <li>New York Burlesque Festival — Silver Medal</li>
+            <li>Toronto Burlesque Festival — Featured Artist</li>
+            <li>London Burlesque Festival 2014 — Selected Performer</li>
+            <li>Asheville Americana Burlesque & Sideshow Festival — Artist of the Year 2016 · Headliner</li>
+            <li>Texas Burlesque Festival</li>
+            <li>Show-Me Burlesque Festival</li>
+            <li>The Purrrlesque Burlesque Festival</li>
+            <li>The Great Southern Exposure</li>
+            <li>Southern Fried Burlesque Festival — Queen Category</li>
+            <li>Festival of Poe, South Carolina — Headliner</li>
+            <li>Baltimore PRIDE Festival — Featured Performer</li>
+            <li>Workin' the Tease Exhibition · Lyric Opera House · MICA</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Gilded Lily School -->
+    <div style="margin-top:2rem; border:1px solid rgba(201,168,76,.18); padding:2.2rem; position:relative;">
+      <div style="position:absolute; top:-1px; left:2rem; right:2rem; height:1px; background:linear-gradient(to right, transparent, var(--gold), transparent);"></div>
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-2 text-center" style="font-size:2.5rem;">🏫</div>
+        <div class="col-lg-10">
+          <p class="sec-eyebrow">The Gilded Lily School of Burlesque</p>
+          <p class="body-copy" style="font-size:.95rem; margin-bottom:0;">
+            Beyond performing, Maria Bella has spent years teaching the art of burlesque at Creative Alliance and other Baltimore venues. Of the roughly 50 students she has taught, over 90% have gone on to perform — many producing their own shows and founding their own troupes. Notable graduates include <strong style="color:var(--champagne);">Sophia Sunday</strong>, who became a core Gilded Lily member, and <strong style="color:var(--champagne);">Tapitha Kix</strong>, who went on to found <em>Twisted Knickers Burlesque</em>. Maria's teaching philosophy: burlesque builds confidence, self-acceptance, and courage — for performers of all shapes, sizes, races, and genders.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4 — TROUPE DNA
+══════════════════════════════════════════════ -->
+<section class="dna-section" id="dna">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="sec-eyebrow">What Makes Gilded Lily Different</span>
+      <h2 class="sec-title">The Troupe's DNA</h2>
+      <div class="gold-rule center"></div>
+      <p style="color:var(--smoke); max-width:580px; margin:.8rem auto 0; line-height:1.8;">
+        No two Gilded Lily performers are alike. That's the point.
+      </p>
+    </div>
+
+    <div class="row g-3">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="dna-card">
+          <div class="dna-icon">🎭</div>
+          <div class="dna-title">Theatrical Storytelling</div>
+          <p class="body-copy" style="font-size:.93rem;">Every act is a narrative. Whether it's a tribute to Quentin Tarantino, a political statement inspired by the Baltimore Uprising, or a comedic Carol Burnett impression — Gilded Lily brings story to the strip.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="dna-card">
+          <div class="dna-icon">🌈</div>
+          <div class="dna-title">Radical Inclusivity</div>
+          <p class="body-copy" style="font-size:.93rem;">Tall and short, skinny and full-bodied, Italian and Black and Irish, with a dash of Native American and Jewish. Brunette, redheaded, fuchsia-haired. Tattooed, pierced, loud, and quiet. Every body on the Gilded Lily stage belongs there.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="dna-card">
+          <div class="dna-icon">✊</div>
+          <div class="dna-title">Art as Activism</div>
+          <p class="body-copy" style="font-size:.93rem;">Inspired by the Baltimore Uprising and the political moment of the 2016 election, Gilded Lily has used the stage to advocate for criminal justice reform, donate to the Innocence Project, and amplify the voices of BIPOC and LGBTQ+ performers.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="dna-card">
+          <div class="dna-icon">🧵</div>
+          <div class="dna-title">Handmade from the Heart</div>
+          <p class="body-copy" style="font-size:.93rem;">Costumes are designed, sewn, and bedazzled by the performers themselves — every rhinestone, every feather, every tasseled pasty is an act of creation. The glitter you see on stage represents hundreds of hours of invisible labor.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="dna-card">
+          <div class="dna-icon">🤝</div>
+          <div class="dna-title">Sisterhood & Collaboration</div>
+          <p class="body-copy" style="font-size:.93rem;">"Art is collaboration for us," Maria has said. "We have all become friends and a real sisterhood." Gilded Lily performers describe the troupe as family — the Justice League, the A-Team. They don't just share a stage; they share a life.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="dna-card">
+          <div class="dna-icon">🏙️</div>
+          <div class="dna-title">Deeply Baltimore</div>
+          <p class="body-copy" style="font-size:.93rem;">Gilded Lily is not a touring production that rolled into Baltimore — it was born here, shaped by the city's creative culture, its history, and its neighborhoods, from Hampden to Highlandtown to Station North. Baltimore made Gilded Lily. Gilded Lily makes Baltimore proud.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 5 — CAST NICKNAMES
+══════════════════════════════════════════════ -->
+<section class="cast-section" id="cast">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="sec-eyebrow">Meet Them by Name</span>
+      <h2 class="sec-title">The Cast & Their Titles</h2>
+      <div class="gold-rule center"></div>
+      <p style="color:var(--smoke); max-width:540px; margin:.8rem auto 0; font-size:.97rem; line-height:1.8;">
+        Every Gilded Lily performer carries a stage name and a moniker that captures their essence. These are the names Baltimore knows and loves.
+      </p>
+    </div>
+
+    <div class="cast-grid">
+
+      <div class="cast-cell">
+        <div class="cast-nickname">Maria Bella</div>
+        <div class="cast-handle">Baltimore's Sicilian Queen · Founder</div>
+        <p class="cast-desc">Dancer, trumpet player, producer. The creative engine of Gilded Lily, performing a style that blends classic cabaret with world dance and neo-burlesque theatrics.</p>
+      </div>
+
+      <div class="cast-cell">
+        <div class="cast-nickname">GiGi Holliday</div>
+        <div class="cast-handle">The Chocolate That Melts Your Heart</div>
+        <p class="cast-desc">Jazz singer and powerhouse performer. Ranked No. 10 Most Influential Burlesque Performer in the World. Her stage work doubles as social protest and pure, soaring joy.</p>
+      </div>
+
+      <div class="cast-cell">
+        <div class="cast-nickname">Ruby Spruce</div>
+        <div class="cast-handle">The Attractive Nuisance</div>
+        <p class="cast-desc">Theater performer with a gift for physical comedy and sharp impression. Does a mean Carol Burnett and keeps the audience delightfully off balance at every turn.</p>
+      </div>
+
+      <div class="cast-cell">
+        <div class="cast-nickname">Mourna Handful</div>
+        <div class="cast-handle">The Uncontainable</div>
+        <p class="cast-desc">Dark comedian and subversive performer. Whether channeling a doomed aristocrat or a gothic ingenue, Mourna brings a delicious irreverence to every act.</p>
+      </div>
+
+      <div class="cast-cell">
+        <div class="cast-nickname">Nona Narcisse</div>
+        <div class="cast-handle">Classically Trained · Star Search Winner</div>
+        <p class="cast-desc">A classically trained dancer whose steam-punk poetic performances won the NYC Burlesque Festival star search at The Ottobar. "It's this wonderful adult art project."</p>
+      </div>
+
+      <div class="cast-cell">
+        <div class="cast-nickname">Sophia Sunday</div>
+        <div class="cast-handle">Sultry Songstress · GLB School Graduate</div>
+        <p class="cast-desc">A graduate of the Gilded Lily School of Burlesque who became a core troupe member — a sterling example of Maria's gift for nurturing and developing new talent.</p>
+      </div>
+
+      <div class="cast-cell">
+        <div class="cast-nickname">Bunny Vicious</div>
+        <div class="cast-handle">Burleokee Queen</div>
+        <p class="cast-desc">Known for her burlesque-meets-karaoke spectacles, Bunny brings charisma and comedic timing to every corner of the Baltimore and East Coast variety scene.</p>
+      </div>
+
+      <div class="cast-cell">
+        <div class="cast-nickname">Valeria Voxx</div>
+        <div class="cast-handle">The Velvet Valkyrie · Stage Vixen</div>
+        <p class="cast-desc">Stage manager, performer, and the unseen force that keeps Gilded Lily's shows running with precision behind the velvet curtain — and front of it, too.</p>
+      </div>
+
+      <div class="cast-cell">
+        <div class="cast-nickname">Lauren Marleaux</div>
+        <div class="cast-handle">Early Company Member</div>
+        <p class="cast-desc">An early and beloved member of the Gilded Lily family, helping establish the troupe's signature aesthetic and collaborative spirit in its formative years.</p>
+      </div>
+
+    </div>
+
+    <p class="text-center mt-4" style="color:var(--smoke); font-style:italic; font-size:.9rem;">
+      Plus rotating guest performers from Philadelphia, New York, Washington DC, and across the East Coast — and special guests from as far as Miss Exotic World & international festival stages.
+    </p>
+
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 6 — MISSION & VALUES
+══════════════════════════════════════════════ -->
+<section class="mission-section" id="mission">
+  <div class="container position-relative">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <span class="sec-eyebrow">What Drives Us</span>
+        <h2 class="sec-title">Mission & Values</h2>
+        <div class="gold-rule center"></div>
+        <p style="color:var(--smoke); line-height:1.9; margin-bottom:.5rem;">
+          From its earliest days, Gilded Lily Burlesque has operated with a mission that goes beyond entertainment.
+          The troupe's official statement says it best:
+        </p>
+        <blockquote class="pull-quote" style="border-left:none; border-top: 1px solid var(--garnet); border-bottom: 1px solid var(--garnet); padding: 1.5rem 1rem; text-align:center; margin:1.5rem 0;">
+          "Our mission is to bring you entertainment that is fun and thought provoking. Come help us celebrate beauty, wit, power, sexuality and freedom."
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="value-grid">
+
+      <div class="value-item">
+        <div class="value-emoji">💪</div>
+        <span class="value-name">Body Positivity</span>
+        <p class="value-body">Every shape, size, and age belongs on the Gilded Lily stage. There is no body shaming here — only celebration.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-emoji">🏳️‍🌈</div>
+        <span class="value-name">LGBTQ+ Visibility</span>
+        <p class="value-body">The troupe is committed to giving LGBTQ+ performers a platform and the visibility they deserve in burlesque and variety arts.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-emoji">✊🏾</div>
+        <span class="value-name">BIPOC Representation</span>
+        <p class="value-body">Gilded Lily actively works to combat the lack of visibility for performers of color in Baltimore burlesque — on stage and in its community.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-emoji">🗣️</div>
+        <span class="value-name">Social Discourse</span>
+        <p class="value-body">From the Innocence Project to the Baltimore Uprising, the troupe uses the stage as a platform for the issues that matter most to Baltimore.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-emoji">🤲</div>
+        <span class="value-name">Consent Culture</span>
+        <p class="value-body">"Laugh out loud, cheer, hoot and holler — and always obtain permission before interacting with performers." Consent is non-negotiable, always.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-emoji">🎓</div>
+        <span class="value-name">Education & Mentorship</span>
+        <p class="value-body">Through the Gilded Lily School of Burlesque and community workshops, Maria Bella has trained the next generation of Baltimore performers for over a decade.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-emoji">🌆</div>
+        <span class="value-name">Community First</span>
+        <p class="value-body">Gilded Lily exists to serve Baltimore's creative community — by producing shows, developing artists, and preserving the city's long performance heritage.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-emoji">🎨</div>
+        <span class="value-name">Artistic Freedom</span>
+        <p class="value-body">No two acts are alike. No style is off-limits. Classic, avant-garde, comedic, political, erotic, absurdist — all are welcome under the Gilded Lily spotlight.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 7 — AWARDS & RECOGNITION
+══════════════════════════════════════════════ -->
+<section class="awards-section" id="awards">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-4">
+        <span class="sec-eyebrow">Honors & Recognition</span>
+        <h2 class="sec-title">Awards &<br>Accolades</h2>
+        <div class="gold-rule"></div>
+        <p class="body-copy">
+          From the pages of the <em>Baltimore City Paper</em> to the stages of the London Burlesque
+          Festival, Gilded Lily Burlesque has been recognized by peers, press, and audiences as one
+          of the most significant burlesque companies on the East Coast.
+        </p>
+        <p class="body-copy" style="margin-top:1rem;">
+          Maria Bella's individual achievements mirror the troupe's collective excellence — a career
+          marked by festival recognition, international touring, and a lasting impact on the Baltimore
+          arts community.
+        </p>
+      </div>
+
+      <div class="col-lg-7 offset-lg-1">
+
+        <div class="award-row">
+          <div class="award-year">2009</div>
+          <div class="award-text">Best of Baltimore — Best Burlesque Troupe</div>
+          <div class="award-source">Baltimore City Paper</div>
+        </div>
+
+        <div class="award-row">
+          <div class="award-year">2012</div>
+          <div class="award-text">Silver Medal — NYC Burlesque Festival Star Search (Maria Bella)</div>
+          <div class="award-source">New York Burlesque Festival · The Ottobar, Baltimore</div>
+        </div>
+
+        <div class="award-row">
+          <div class="award-year">2013</div>
+          <div class="award-text">Featured Artist — New York Burlesque Festival</div>
+          <div class="award-source">New York Burlesque Festival</div>
+        </div>
+
+        <div class="award-row">
+          <div class="award-year">2013</div>
+          <div class="award-text">Featured Artist — Toronto Burlesque Festival</div>
+          <div class="award-source">Toronto Burlesque Festival</div>
+        </div>
+
+        <div class="award-row">
+          <div class="award-year">2014</div>
+          <div class="award-text">Selected Performer — London Burlesque Festival</div>
+          <div class="award-source">London Burlesque Festival · International</div>
+        </div>
+
+        <div class="award-row">
+          <div class="award-year">2014</div>
+          <div class="award-text">Workin' the Tease: The Art of Baltimore Burlesque — Exhibition Feature</div>
+          <div class="award-source">Maryland Institute College of Art · Lyric Opera House</div>
+        </div>
+
+        <div class="award-row">
+          <div class="award-year">2016</div>
+          <div class="award-text">Artist of the Year & Headliner — Asheville Americana Burlesque & Sideshow Festival</div>
+          <div class="award-source">ABSFest · Asheville, NC</div>
+        </div>
+
+        <div class="award-row">
+          <div class="award-year">2023</div>
+          <div class="award-text">Charm City Burlesque & Variety Festival — Co-Founded & Produced</div>
+          <div class="award-source">Creative Alliance · Baltimore, MD</div>
+        </div>
+
+        <div class="award-row">
+          <div class="award-year">2025</div>
+          <div class="award-text">14th Annual Tassels & Champagne · GiGi Holliday ranked No. 10 Most Influential Burlesque Performer in the World</div>
+          <div class="award-source">Creative Alliance · International Burlesque Rankings</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRIBUTE STATEMENT ══ -->
+<section class="tribute-section">
+  <div class="container">
+    <span class="sec-eyebrow" style="display:block; text-align:center; margin-bottom:1rem;">A Word from This Tribute</span>
+    <h2 class="tribute-headline">
+      "We need to," says Maria, "and it's going to be all-embracing to showcase all of the talents of our city. It's going to show that we're here. And we're not going anywhere."
+    </h2>
+    <div class="gold-rule center"></div>
+    <p style="color:var(--smoke); max-width:560px; margin:1.5rem auto 2rem; line-height:1.85; font-size:.97rem; text-align:center;">
+      This fan tribute site was created to celebrate the legacy, artistry, and impact of Gilded Lily
+      Burlesque — Baltimore's longest-running and most beloved burlesque troupe. All words, quotes,
+      and history belong to the performers who lived them.
+    </p>
+    <div class="d-flex flex-wrap gap-3 justify-content-center">
+      <a href="http://www.gildedlilyburlesque.com" target="_blank" class="btn-gilded">Official Website</a>
+      <a href="https://creativealliance.org" target="_blank" class="btn-gilded">Get Tickets</a>
+      <a href="gilded-lily-burlesque.html" class="btn-gilded">Return Home</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">Gilded Lily Burlesque</div>
+        <div class="footer-sub">Fan Tribute Site · Baltimore, MD</div>
+        <p style="color:var(--smoke); font-size:.88rem; line-height:1.8;">
+          An unofficial tribute to Baltimore's finest — celebrating nearly two decades of glitter,
+          grit, and genuine artistry. Founded by Maria Bella. Est. 2007.
+        </p>
+      </div>
+      <div class="col-lg-2 offset-lg-1">
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom:.9rem;">Pages</p>
+        <a href="gilded-lily-burlesque.html" class="footer-link">Home</a>
+        <a href="#">About</a>
+        <a href="gilded-lily-burlesque.html#performers" class="footer-link">Performers</a>
+        <a href="gilded-lily-burlesque.html#shows" class="footer-link">Shows</a>
+        <a href="gilded-lily-burlesque.html#venues" class="footer-link">Venues</a>
+        <a href="gilded-lily-burlesque.html#press" class="footer-link">Press</a>
+      </div>
+      <div class="col-lg-2">
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom:.9rem;">Official Links</p>
+        <a href="http://www.gildedlilyburlesque.com" target="_blank" class="footer-link">Gilded Lily HQ</a>
+        <a href="https://creativealliance.org" target="_blank" class="footer-link">Creative Alliance</a>
+        <a href="https://baltimore.org" target="_blank" class="footer-link">Visit Baltimore</a>
+        <a href="https://www.baltimoremagazine.com" target="_blank" class="footer-link">Baltimore Magazine</a>
+      </div>
+      <div class="col-lg-3">
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom:.9rem;">Upcoming Shows</p>
+        <p style="color:var(--smoke); font-size:.88rem; line-height:1.7;">
+          Tassels & Champagne · Annual<br>
+          <em style="color:var(--champagne);">Creative Alliance, Baltimore</em><br>
+          <span style="font-size:.8rem;">Valentine's Day Weekend Each Year</span>
+        </p>
+        <p style="color:var(--smoke); font-size:.82rem; margin-top:.8rem; line-height:1.7;">
+          Charm City Burlesque & Variety Festival<br>
+          <em style="color:var(--champagne);">Creative Alliance · Annual · Fall</em>
+        </p>
+      </div>
+    </div>
+    <p class="footer-disclaimer">
+      This is an unofficial fan tribute website. Not affiliated with Gilded Lily Burlesque, Maria Bella,
+      or Creative Alliance. All content sourced from <em>Baltimore Magazine</em>, Baltimore Post-Examiner,
+      Visit Baltimore, Dance Place DC, ABSFest, RAWartists, Baltimore Fishbowl, and other public sources.
+      Visit <a href="http://www.gildedlilyburlesque.com" target="_blank" style="color:var(--gold);">gildedlilyburlesque.com</a>
+      for official show information and tickets.
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shows — Gilded Lily Burlesque Fan Tribute</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --noir:      #0e0a0a;
+      --deep-plum: #1a0a1e;
+      --garnet:    #8b1a2e;
+      --gold:      #c9a84c;
+      --champagne: #f0dfa0;
+      --ivory:     #f8f1e4;
+      --smoke:     #b0a8a0;
+      --curtain:   #3d0d1a;
+      --blush:     #5c1428;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--noir);
+      color: var(--ivory);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.05rem;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    .navbar-gilded {
+      background: rgba(7,3,5,0.95) !important;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      backdrop-filter: blur(14px);
+    }
+    .navbar-brand-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--champagne) !important;
+      font-size: 1.15rem;
+    }
+    .nav-link-g {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.67rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--smoke) !important;
+      padding: 0.45rem 0.85rem !important;
+      transition: color .25s;
+    }
+    .nav-link-g:hover, .nav-link-g.active { color: var(--gold) !important; }
+
+    /* ── TASSEL BAR ── */
+    .tassel-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 30px;
+      background: repeating-linear-gradient(90deg, var(--gold) 0, var(--gold) 3px, transparent 3px, transparent 16px);
+      opacity: .45;
+    }
+    .tassel-bar::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 0; right: 0; height: 22px;
+      background: repeating-linear-gradient(90deg, transparent 0, transparent 5px, var(--gold) 5px, var(--gold) 8px, transparent 8px, transparent 13px, var(--gold) 13px, var(--gold) 16px);
+      opacity: .3;
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--deep-plum);
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 0 5rem;
+      text-align: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 55% 70% at 50% 60%, rgba(201,168,76,.1) 0%, rgba(139,26,46,.06) 40%, transparent 70%);
+    }
+    /* stage curtain side drapes */
+    .hero-drape-l, .hero-drape-r {
+      position: absolute; top: 0; width: 18%; height: 100%; z-index: 1; pointer-events: none;
+    }
+    .hero-drape-l { left: 0; background: linear-gradient(to right, var(--curtain) 55%, transparent); }
+    .hero-drape-r { right: 0; background: linear-gradient(to left, var(--curtain) 55%, transparent); }
+
+    .page-eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .72rem; letter-spacing: .4em;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 1.1rem; display: block; position: relative; z-index:2;
+    }
+    .page-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900; font-style: italic;
+      color: var(--champagne); line-height: 1;
+      position: relative; z-index: 2;
+      text-shadow: 0 0 60px rgba(201,168,76,.3);
+      margin-bottom: .5rem;
+    }
+    .page-hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem,2vw,1.35rem);
+      color: var(--smoke);
+      position: relative; z-index: 2;
+      max-width: 580px; margin: .8rem auto 0; line-height: 1.75;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      background: rgba(26,10,30,.95);
+      border-bottom: 1px solid rgba(201,168,76,.12);
+      padding: .9rem 0;
+      position: sticky; top: 56px; z-index: 100;
+    }
+    .filter-btn {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .63rem; letter-spacing: .22em;
+      text-transform: uppercase;
+      border: 1px solid rgba(201,168,76,.25);
+      background: transparent;
+      color: var(--smoke);
+      padding: .4rem 1rem;
+      cursor: pointer;
+      transition: all .25s;
+      white-space: nowrap;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .filter-btn.active {
+      background: rgba(201,168,76,.08);
+    }
+
+    /* ── SHARED UTIL ── */
+    section { padding: 5rem 0; }
+    .sec-eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .67rem; letter-spacing: .4em;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: .8rem;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem,3.5vw,2.9rem);
+      font-style: italic; font-weight: 700;
+      color: var(--champagne); line-height: 1.15;
+      margin-bottom: 1.1rem;
+    }
+    .gold-rule { width: 50px; height: 1px; background: var(--gold); opacity: .55; margin: 1.3rem 0; }
+    .gold-rule.center { margin-left: auto; margin-right: auto; }
+    .body-copy { color: var(--smoke); line-height: 1.9; font-size: 1rem; }
+    .ornament { text-align:center; color:var(--gold); opacity:.4; font-size:1rem; letter-spacing:.6em; padding:.3rem 0; }
+
+    /* ── SIGNATURE SHOW — Tassels & Champagne ── */
+    .flagship-section { background: var(--curtain); position: relative; overflow: hidden; }
+    .flagship-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,.06), transparent 70%);
+    }
+
+    .flagship-card {
+      border: 1px solid rgba(201,168,76,.3);
+      padding: 3rem;
+      position: relative;
+    }
+    .flagship-card::before, .flagship-card::after {
+      content: ''; position: absolute; width: 28px; height: 28px;
+    }
+    .flagship-card::before { top: 12px; left: 12px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+    .flagship-card::after  { bottom: 12px; right: 12px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+
+    .flagship-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem; font-weight: 900; font-style: italic;
+      color: var(--garnet); opacity: .25; line-height: 1;
+      margin-bottom: -.5rem;
+    }
+    .flagship-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem,3vw,2.6rem);
+      font-style: italic; color: var(--champagne);
+      line-height: 1.15; margin-bottom: .4rem;
+    }
+    .flagship-subtitle {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .7rem; letter-spacing: .25em;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Edition grid inside flagship */
+    .edition-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: rgba(201,168,76,.08);
+      margin-top: 2rem;
+    }
+    .edition-cell {
+      background: rgba(61,13,26,.6);
+      padding: 1.2rem 1.1rem;
+      transition: background .25s;
+    }
+    .edition-cell:hover { background: rgba(139,26,46,.2); }
+    .edition-num {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-weight: 900;
+      font-size: 1.5rem; color: var(--garnet);
+      opacity: .6; line-height: 1; margin-bottom: .2rem;
+    }
+    .edition-theme {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1rem;
+      color: var(--champagne); margin-bottom: .15rem;
+    }
+    .edition-year {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .6rem; letter-spacing: .2em;
+      color: var(--gold); text-transform: uppercase;
+    }
+
+    /* ── SHOW CATALOGUE CARDS ── */
+    .catalogue-section { background: var(--noir); }
+
+    .show-card {
+      background: var(--deep-plum);
+      border: 1px solid rgba(201,168,76,.12);
+      height: 100%;
+      display: flex; flex-direction: column;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .show-card:hover {
+      border-color: rgba(201,168,76,.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,.5);
+    }
+    /* category color bar */
+    .show-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .show-card.cat-tribute::before  { background: linear-gradient(to right, #7b2d8b, transparent); }
+    .show-card.cat-live::before     { background: linear-gradient(to right, #1a5f7a, transparent); }
+    .show-card.cat-themed::before   { background: linear-gradient(to right, var(--garnet), transparent); }
+    .show-card.cat-festival::before { background: linear-gradient(to right, #b87a00, transparent); }
+    .show-card.cat-political::before{ background: linear-gradient(to right, #2a6b3c, transparent); }
+    .show-card.cat-travel::before   { background: linear-gradient(to right, #4a3060, transparent); }
+
+    .show-card-header {
+      padding: 1.6rem 1.6rem 0;
+    }
+    .show-cat-badge {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .58rem; letter-spacing: .22em;
+      text-transform: uppercase;
+      display: inline-block;
+      border: 1px solid;
+      padding: .25rem .75rem;
+      margin-bottom: .9rem;
+    }
+    .cat-tribute  .show-cat-badge { border-color: #7b2d8b; color: #b87acf; }
+    .cat-live     .show-cat-badge { border-color: #1a5f7a; color: #5aabb8; }
+    .cat-themed   .show-cat-badge { border-color: var(--garnet); color: #e07090; }
+    .cat-festival .show-cat-badge { border-color: #b87a00; color: var(--gold); }
+    .cat-political.show-cat-badge,
+    .cat-political .show-cat-badge { border-color: #2a6b3c; color: #6fbf80; }
+    .cat-travel   .show-cat-badge { border-color: #4a3060; color: #9a78c0; }
+
+    .show-card-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1.4rem;
+      color: var(--champagne); line-height: 1.2;
+      margin-bottom: .3rem;
+    }
+    .show-card-venue-date {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .62rem; letter-spacing: .18em;
+      color: var(--smoke); text-transform: uppercase;
+      margin-bottom: 0;
+    }
+    .show-card-body {
+      padding: 1rem 1.6rem 1.6rem;
+      flex: 1;
+    }
+    .show-card-desc {
+      color: var(--smoke); font-size: .93rem;
+      line-height: 1.8; margin-bottom: 1rem;
+    }
+    .show-card-cast {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .6rem; letter-spacing: .15em;
+      color: rgba(176,168,160,.55); text-transform: uppercase;
+      line-height: 1.6;
+    }
+    .show-card-cast strong { color: rgba(201,168,76,.7); }
+
+    /* show detail expand */
+    .show-details {
+      background: rgba(0,0,0,.25);
+      border-top: 1px solid rgba(201,168,76,.1);
+      padding: 1rem 1.6rem;
+    }
+    .show-detail-item {
+      display: flex; gap: .8rem; align-items: flex-start;
+      margin-bottom: .4rem; font-size: .85rem; color: var(--smoke);
+    }
+    .show-detail-icon { color: var(--gold); flex-shrink: 0; font-size: .8rem; margin-top: .1rem; }
+
+    /* ── FESTIVAL SECTION ── */
+    .festival-section { background: var(--deep-plum); }
+
+    .fest-card {
+      border: 1px solid rgba(201,168,76,.18);
+      padding: 2.2rem;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .3s;
+    }
+    .fest-card:hover { border-color: rgba(201,168,76,.5); }
+    .fest-card::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--garnet), var(--gold), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .fest-card:hover::before { opacity: 1; }
+
+    .fest-night {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .63rem; letter-spacing: .3em;
+      color: var(--gold); text-transform: uppercase; margin-bottom: .5rem;
+    }
+    .fest-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1.3rem;
+      color: var(--champagne); margin-bottom: .6rem;
+    }
+    .fest-desc { color: var(--smoke); font-size: .9rem; line-height: 1.8; }
+
+    /* ── TOURING SECTION ── */
+    .touring-section { background: var(--curtain); }
+
+    .tour-row {
+      display: flex; align-items: flex-start; gap: 1.5rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(201,168,76,.1);
+    }
+    .tour-row:last-child { border-bottom: none; }
+    .tour-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      border: 1px solid rgba(201,168,76,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .tour-name {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1.1rem;
+      color: var(--champagne); margin-bottom: .15rem;
+    }
+    .tour-meta {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .6rem; letter-spacing: .2em;
+      color: var(--gold); text-transform: uppercase; margin-bottom: .3rem;
+    }
+    .tour-desc { color: var(--smoke); font-size: .88rem; line-height: 1.7; }
+
+    /* ── EXPERIENCE SECTION ── */
+    .experience-section { background: var(--noir); }
+
+    .exp-card {
+      text-align: center; padding: 2rem 1.5rem;
+      border: 1px solid rgba(201,168,76,.12);
+      height: 100%;
+      transition: border-color .3s;
+    }
+    .exp-card:hover { border-color: rgba(201,168,76,.4); }
+    .exp-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .exp-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1.2rem;
+      color: var(--champagne); margin-bottom: .6rem;
+    }
+    .exp-body { color: var(--smoke); font-size: .9rem; line-height: 1.75; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--garnet);
+      padding: 3.5rem 0; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(0,0,0,.3), transparent);
+    }
+
+    .btn-gilded {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .73rem; letter-spacing: .22em;
+      text-transform: uppercase;
+      padding: .8rem 2rem;
+      border: 1px solid var(--gold);
+      color: var(--gold); background: transparent;
+      text-decoration: none; display: inline-block;
+      transition: all .3s; position: relative; overflow: hidden;
+    }
+    .btn-gilded::before {
+      content: ''; position: absolute;
+      top:0; left:-100%; right:100%; bottom:0;
+      background: rgba(201,168,76,.12); transition: all .4s;
+    }
+    .btn-gilded:hover::before { left:0; right:0; }
+    .btn-gilded:hover { color: var(--champagne); border-color: var(--champagne); }
+    .btn-gilded-light {
+      border-color: var(--champagne); color: var(--champagne);
+    }
+    .btn-gilded-light:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #070305;
+      padding: 3.5rem 0 2rem;
+      border-top: 1px solid rgba(201,168,76,.18);
+    }
+    .footer-brand { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; color: var(--champagne); }
+    .footer-sub { font-family: 'Josefin Sans', sans-serif; font-size: .63rem; letter-spacing: .3em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-link { display: block; color: var(--smoke); font-family: 'Josefin Sans', sans-serif; font-size: .68rem; letter-spacing: .15em; text-transform: uppercase; text-decoration: none; margin-bottom: .6rem; transition: color .25s; }
+    .footer-link:hover { color: var(--gold); }
+    .footer-disclaimer { font-family: 'Josefin Sans', sans-serif; font-size: .7rem; color: rgba(176,168,160,.4); text-align: center; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(201,168,76,.1); letter-spacing: .05em; line-height: 1.8; }
+
+    @media(max-width:768px) {
+      section { padding: 3.5rem 0; }
+      .flagship-card { padding: 1.8rem; }
+      .show-card-title { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="navbar navbar-expand-lg navbar-gilded sticky-top">
+  <div class="container">
+    <a class="navbar-brand navbar-brand-text" href="gilded-lily-burlesque.html">Gilded Lily Burlesque</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav" style="color:var(--gold);">☰</button>
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
+      <ul class="navbar-nav gap-1">
+        <li class="nav-item"><a class="nav-link nav-link-g" href="gilded-lily-burlesque.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-g" href="gilded-lily-about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-g" href="gilded-lily-burlesque.html#performers">Performers</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-g active" href="#">Shows</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-g" href="gilded-lily-burlesque.html#venues">Venues</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-g" href="gilded-lily-burlesque.html#press">Press</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ PAGE HERO ══ -->
+<div class="page-hero">
+  <div class="tassel-bar"></div>
+  <div class="hero-drape-l"></div>
+  <div class="hero-drape-r"></div>
+  <div class="container position-relative" style="z-index:2;">
+    <span class="page-eyebrow">The Productions · Est. 2007</span>
+    <h1 class="page-hero-title">The Shows</h1>
+    <p class="page-hero-sub">Nearly two decades of productions — from intimate Windup Space nights to sold-out Creative Alliance spectaculars. Every show a different world. Every world, Baltimore.</p>
+  </div>
+</div>
+
+<!-- ══ FILTER BAR ══ -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="d-flex flex-wrap gap-2 justify-content-center">
+      <button class="filter-btn active" data-filter="all">All Shows</button>
+      <button class="filter-btn" data-filter="flagship">Flagship Series</button>
+      <button class="filter-btn" data-filter="tribute">Pop Culture Tributes</button>
+      <button class="filter-btn" data-filter="live">Live Music</button>
+      <button class="filter-btn" data-filter="political">Activism &amp; Politics</button>
+      <button class="filter-btn" data-filter="festival">Festivals</button>
+      <button class="filter-btn" data-filter="touring">Touring Productions</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     FLAGSHIP: TASSELS & CHAMPAGNE
+══════════════════════════════════════════════ -->
+<section class="flagship-section" id="flagship">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-9 text-center">
+        <span class="sec-eyebrow">The Crown Jewel · Annual Valentine's Spectacular</span>
+        <h2 class="sec-title">Tassels &amp; Champagne</h2>
+        <div class="gold-rule center"></div>
+        <p class="body-copy" style="max-width:620px; margin:0 auto;">
+          Since 2011, every February has belonged to Gilded Lily. "Tassels &amp; Champagne" is Baltimore's
+          most beloved burlesque tradition — a Valentine's Day spectacular at Creative Alliance that has
+          welcomed national headliners, local legends, live music, champagne cocktail hours, and audiences
+          dressed to the nines for 14 consecutive years.
+        </p>
+      </div>
+    </div>
+
+    <div class="flagship-card">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-5">
+          <div class="flagship-number">T&amp;C</div>
+          <div class="flagship-name">Tassels &amp; Champagne</div>
+          <div class="flagship-subtitle">Annual Valentine's Burlesque &amp; Variety Show · Creative Alliance · Baltimore</div>
+
+          <p class="body-copy">
+            What started as a Valentine's Day showcase has evolved into Gilded Lily's most ambitious
+            annual production. Each edition carries a distinct theme — from heartfelt Baltimore tributes
+            to bold celebrations of queer love — and draws performers from across the East Coast and beyond.
+          </p>
+          <p class="body-copy" style="margin-top:1rem;">
+            The 14th annual edition in 2025 opened with a pre-show cocktail &amp; mocktail hour hosted by
+            "Baltimore's reigning Mistress of Smut" Jocelyn Loverling, followed by an evening of burlesque,
+            aerial arts, and variety from performers including Miss Exotic World 2023 Samson Night and
+            GiGi Holliday — ranked No. 10 Most Influential Burlesque Performer in the World.
+          </p>
+
+          <div style="margin-top:1.5rem; border:1px solid rgba(201,168,76,.2); padding:1.3rem;">
+            <p style="font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.25em; color:var(--gold); text-transform:uppercase; margin-bottom:.7rem;">What to Expect</p>
+            <div style="display:flex; flex-direction:column; gap:.5rem;">
+              <div style="display:flex; gap:.8rem; align-items:flex-start; font-size:.88rem; color:var(--smoke);">
+                <span style="color:var(--gold); flex-shrink:0;">✦</span> Pre-show cocktail &amp; mocktail hour with entertainment
+              </div>
+              <div style="display:flex; gap:.8rem; align-items:flex-start; font-size:.88rem; color:var(--smoke);">
+                <span style="color:var(--gold); flex-shrink:0;">✦</span> National &amp; local guest headliners (NYC, Philly, DC &amp; Baltimore)
+              </div>
+              <div style="display:flex; gap:.8rem; align-items:flex-start; font-size:.88rem; color:var(--smoke);">
+                <span style="color:var(--gold); flex-shrink:0;">✦</span> Retro glamour atmosphere &amp; champagne table packages
+              </div>
+              <div style="display:flex; gap:.8rem; align-items:flex-start; font-size:.88rem; color:var(--smoke);">
+                <span style="color:var(--gold); flex-shrink:0;">✦</span> Live streaming option for stay-at-home audiences
+              </div>
+              <div style="display:flex; gap:.8rem; align-items:flex-start; font-size:.88rem; color:var(--smoke);">
+                <span style="color:var(--gold); flex-shrink:0;">✦</span> Variety acts: aerialists, belly dancers, drag, boylesque
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <p style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom:1rem;">All 14 Editions</p>
+          <div class="edition-grid">
+
+            <div class="edition-cell">
+              <div class="edition-num">I</div>
+              <div class="edition-theme">Tassels &amp; Champagne</div>
+              <div class="edition-year">2011 · Creative Alliance</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">II</div>
+              <div class="edition-theme">Tassels &amp; Champagne</div>
+              <div class="edition-year">2012 · Creative Alliance</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">III</div>
+              <div class="edition-theme">Tassels &amp; Champagne</div>
+              <div class="edition-year">2013 · Creative Alliance</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">IV</div>
+              <div class="edition-theme">Tassels &amp; Champagne</div>
+              <div class="edition-year">2014 · Creative Alliance</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">V</div>
+              <div class="edition-theme">Tassels &amp; Champagne</div>
+              <div class="edition-year">2015 · Creative Alliance</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">VI</div>
+              <div class="edition-theme">Of Love and Blues</div>
+              <div class="edition-year">2016 · Creative Alliance · w/ Jonny Grave &amp; the Tombstones</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">VII</div>
+              <div class="edition-theme">Tassels &amp; Champagne</div>
+              <div class="edition-year">2017 · Creative Alliance</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">VIII</div>
+              <div class="edition-theme">Tassels &amp; Champagne</div>
+              <div class="edition-year">2018 · Creative Alliance</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">IX</div>
+              <div class="edition-theme">Tassels &amp; Champagne</div>
+              <div class="edition-year">2019 · Creative Alliance</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">X</div>
+              <div class="edition-theme">Pandemic Hiatus</div>
+              <div class="edition-year">2020 · COVID-19</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">XI</div>
+              <div class="edition-theme">We Love You, Baltimore</div>
+              <div class="edition-year">2021 · Creative Alliance · Return to Live</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">XII</div>
+              <div class="edition-theme">Love is Love</div>
+              <div class="edition-year">2022 · Creative Alliance · LGBTQ+ Celebration</div>
+            </div>
+
+            <div class="edition-cell">
+              <div class="edition-num">XIII</div>
+              <div class="edition-theme">Return to Glamour</div>
+              <div class="edition-year">2023 · Creative Alliance + Dance Place DC</div>
+            </div>
+
+            <div class="edition-cell" style="border: 1px solid rgba(201,168,76,.3); background: rgba(139,26,46,.15);">
+              <div class="edition-num" style="opacity:1; color:var(--gold);">XIV</div>
+              <div class="edition-theme">The Love Edition</div>
+              <div class="edition-year">2025 · Creative Alliance · Feb 15 · w/ Samson Night &amp; GiGi Holliday</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- ══════════════════════════════════════════════
+     SHOW CATALOGUE
+══════════════════════════════════════════════ -->
+<section class="catalogue-section" id="catalogue">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="sec-eyebrow">The Full Archive</span>
+      <h2 class="sec-title">Show Catalogue</h2>
+      <div class="gold-rule center"></div>
+      <p class="body-copy" style="max-width:560px; margin:.8rem auto 0;">
+        From pop culture tributes to political cabaret, live music spectacles to surrealist variety — every Gilded Lily show was its own world.
+      </p>
+    </div>
+
+    <div class="row g-4" id="show-grid">
+
+      <!-- TARAN-TEASE -->
+      <div class="col-md-6 col-lg-4 show-item" data-cat="tribute">
+        <div class="show-card cat-tribute">
+          <div class="show-card-header">
+            <span class="show-cat-badge">Pop Culture Tribute</span>
+            <div class="show-card-title">Taran-Tease</div>
+            <div class="show-card-subtitle" style="font-family:'Playfair Display',serif; font-style:italic; color:var(--smoke); font-size:.95rem; margin-bottom:.4rem;">A Burlesque Tribute to Quentin Tarantino</div>
+            <p class="show-card-venue-date">Feb 23, 2013 · The Windup Space</p>
+          </div>
+          <div class="show-card-body">
+            <p class="show-card-desc">
+              Have you wondered what was in Samuel L. Jackson's briefcase in <em>Pulp Fiction</em>?
+              Were you seduced by Salma Hayek's snake dance in <em>From Dusk Till Dawn</em>? Did Uma
+              Thurman's deadly moves make you want to join the Deadly Viper Assassination Squad? In
+              celebration of <em>Django Unchained</em>, this twisted cast of titillating talent paid
+              tribute to the cult director of the decade. One of Gilded Lily's most iconic and
+              talked-about themed productions.
+            </p>
+            <p class="show-card-cast"><strong>Cast:</strong> Maria Bella · Sophia Sunday · GiGi Holliday · Roma Mafia · Nona Narcisse (New Orleans) · Creamy Stevens (NYC) · MC: Swami Yomahmi · Stage Mgr: Lauren Marleaux</p>
+          </div>
+          <div class="show-details">
+            <div class="show-detail-item"><span class="show-detail-icon">📍</span><span>The Windup Space, 12 W. North Ave, Station North</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">🎬</span><span>Inspired by <em>Django Unchained</em>, <em>Pulp Fiction</em>, <em>Kill Bill</em>, <em>From Dusk Till Dawn</em></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SURREALESQUE -->
+      <div class="col-md-6 col-lg-4 show-item" data-cat="tribute themed">
+        <div class="show-card cat-tribute">
+          <div class="show-card-header">
+            <span class="show-cat-badge">Avant-Garde</span>
+            <div class="show-card-title">Surrealesque</div>
+            <div class="show-card-subtitle" style="font-family:'Playfair Display',serif; font-style:italic; color:var(--smoke); font-size:.95rem; margin-bottom:.4rem;">A Surrealist Burlesque Experience</div>
+            <p class="show-card-venue-date">Summer 2012 · Creative Alliance</p>
+          </div>
+          <div class="show-card-body">
+            <p class="show-card-desc">
+              One of the troupe's most daring early experiments, Surrealesque pushed Gilded Lily's theatrical
+              instincts beyond classic striptease into something more dreamlike and disorienting — in the
+              most delicious way. Featuring the return of Armitage Shanks, whose wild presence elevated the
+              show into genuine performance art territory. <em>Baltimore Magazine</em> later cited this as
+              a defining moment in the troupe's evolution.
+            </p>
+            <p class="show-card-cast"><strong>Cast:</strong> Maria Bella · Armitage Shanks · Gilded Lily company</p>
+          </div>
+          <div class="show-details">
+            <div class="show-detail-item"><span class="show-detail-icon">📍</span><span>Creative Alliance, Patterson Theater, Highlandtown</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">🎨</span><span>Mixed medium performance art + classic burlesque</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSTRUMENTAL TEASE -->
+      <div class="col-md-6 col-lg-4 show-item" data-cat="live">
+        <div class="show-card cat-live">
+          <div class="show-card-header">
+            <span class="show-cat-badge">Live Music</span>
+            <div class="show-card-title">Instrumental Tease</div>
+            <div class="show-card-subtitle" style="font-family:'Playfair Display',serif; font-style:italic; color:var(--smoke); font-size:.95rem; margin-bottom:.4rem;">Burlesque + Live Blues & Swing</div>
+            <p class="show-card-venue-date">Multiple Dates · The Windup Space</p>
+          </div>
+          <div class="show-card-body">
+            <p class="show-card-desc">
+              An evening with the best burlesque, variety, and live music the local Baltimore scene has
+              to offer. Performers tease to the raw, in-the-room sound of live bands — transporting the
+              audience to a bygone era of supper clubs and smoke-filled jazz lounges. The first edition
+              featured Maria Bella, Miss Ruby Sparkles, and Lauren Marleaux performing to live blues and
+              mountain swing. Later editions brought Sean K. Preston &amp; the Loaded Pistols, and
+              Jonny Grave &amp; the Tombstones.
+            </p>
+            <p class="show-card-cast"><strong>Cast:</strong> Maria Bella · Lauren Marleaux · Miss Ruby Sparkles · and rotating live bands</p>
+          </div>
+          <div class="show-details">
+            <div class="show-detail-item"><span class="show-detail-icon">📍</span><span>The Windup Space, Station North</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">🎺</span><span>Live blues, mountain swing, rock &amp; roll accompaniment</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">🎸</span><span>Bands: Sean K. Preston &amp; the Loaded Pistols · Jonny Grave &amp; the Tombstones</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONEY ISLAND CARNIVAL -->
+      <div class="col-md-6 col-lg-4 show-item" data-cat="themed">
+        <div class="show-card cat-themed">
+          <div class="show-card-header">
+            <span class="show-cat-badge">Sideshow &amp; Variety</span>
+            <div class="show-card-title">The Carnivalesque</div>
+            <div class="show-card-subtitle" style="font-family:'Playfair Display',serif; font-style:italic; color:var(--smoke); font-size:.95rem; margin-bottom:.4rem;">A Burlesque Carnival Spectacular</div>
+            <p class="show-card-venue-date">2013 · Multiple Venues</p>
+          </div>
+          <div class="show-card-body">
+            <p class="show-card-desc">
+              "There will be a midway, with acrobats, barkers, wayward women, a freak show — just about
+              everything you'd see at a Coney Island carnival. There will be games, too." Maria Bella
+              described this as "like no other show she has ever produced." Featuring sideshow art and
+              oddities from the collection of <em>Shocked and Amazed</em> author James Taylor, and a full
+              cast of circus performers, vaudeville entertainers, and burlesque stars.
+            </p>
+            <p class="show-card-cast"><strong>Cast:</strong> Maria Bella · Armitage Shanks · GiGi Holliday · Kay Sera · Mourna Handful · Mab Just Mab · Patsi Cake (trapeze) · Sophia Sunday · Jonathan Burns (vaudeville contortionist/magician) · Russell Bruner (King of Boylesque 2012)</p>
+          </div>
+          <div class="show-details">
+            <div class="show-detail-item"><span class="show-detail-icon">🎠</span><span>Full Coney Island-style midway experience</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">🃏</span><span>Sideshow art from the James Taylor "Shocked and Amazed" collection</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FIGHT THE POWER -->
+      <div class="col-md-6 col-lg-4 show-item" data-cat="political">
+        <div class="show-card cat-political">
+          <div class="show-card-header">
+            <span class="show-cat-badge">Activism &amp; Politics</span>
+            <div class="show-card-title">Fight the Power</div>
+            <div class="show-card-subtitle" style="font-family:'Playfair Display',serif; font-style:italic; color:var(--smoke); font-size:.95rem; margin-bottom:.4rem;">A Political Burlesque Cabaret</div>
+            <p class="show-card-venue-date">2016 · Creative Alliance</p>
+          </div>
+          <div class="show-card-body">
+            <p class="show-card-desc">
+              Inspired by the Baltimore Uprising and the 2016 election, this Creative Alliance show
+              tackled topical issues through both playful and poignant acts. A portion of the proceeds
+              went to the criminal justice reform nonprofit the Innocence Project. The evening's most
+              powerful moment: GiGi Holliday performed to Michael Jackson's "They Don't Care About Us,"
+              wearing a white bodysuit that read "Say Their Name." She ran offstage and cried into
+              Maria's arms. "Burlesque is my own protest," GiGi said. Guest performer Betty O'Hellno
+              dressed as a mermaidian Statue of Liberty to Lana Del Rey.
+            </p>
+            <p class="show-card-cast"><strong>Cast:</strong> GiGi Holliday · Maria Bella · Betty O'Hellno · Full Gilded Lily company</p>
+          </div>
+          <div class="show-details">
+            <div class="show-detail-item"><span class="show-detail-icon">✊</span><span>Proceeds benefited the Innocence Project</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">📍</span><span>Creative Alliance, Patterson Theater</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">🎵</span><span>Featured: "They Don't Care About Us" — Michael Jackson</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RETURN TO GLAMOUR (DC) -->
+      <div class="col-md-6 col-lg-4 show-item" data-cat="touring">
+        <div class="show-card cat-travel">
+          <div class="show-card-header">
+            <span class="show-cat-badge">Touring Production</span>
+            <div class="show-card-title">Return to Glamour</div>
+            <div class="show-card-subtitle" style="font-family:'Playfair Display',serif; font-style:italic; color:var(--smoke); font-size:.95rem; margin-bottom:.4rem;">Gilded Lily Returns to Washington DC</div>
+            <p class="show-card-venue-date">2019 · Dance Place · Washington DC</p>
+          </div>
+          <div class="show-card-body">
+            <p class="show-card-desc">
+              "The sparkle of a rhinestone in the spotlight. The hypnotic shimmy of fringe across the hips.
+              The caress of a silk stocking along the leg." Return to Glamour marked Gilded Lily's long-awaited
+              return to the nation's capital, performed at the prestigious Dance Place. A celebration of
+              returns — live burlesque, glitz, glamour — with live music from Jenny Langer &amp; the
+              Moonshine Society and a cast spanning Philadelphia, DC, and Baltimore.
+            </p>
+            <p class="show-card-cast"><strong>Cast:</strong> Maria Bella · Eden · Delilah Dentata · Maria TopCatt (Philly host) · SirVixen · Bunny Vicious · Thandiwe Zulu</p>
+          </div>
+          <div class="show-details">
+            <div class="show-detail-item"><span class="show-detail-icon">📍</span><span>Dance Place · Washington DC</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">🎵</span><span>Live music: Jenny Langer &amp; the Moonshine Society</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WORKIN' THE TEASE -->
+      <div class="col-md-6 col-lg-4 show-item" data-cat="touring">
+        <div class="show-card cat-travel">
+          <div class="show-card-header">
+            <span class="show-cat-badge">Gallery &amp; Stage</span>
+            <div class="show-card-title">Workin' the Tease</div>
+            <div class="show-card-subtitle" style="font-family:'Playfair Display',serif; font-style:italic; color:var(--smoke); font-size:.95rem; margin-bottom:.4rem;">The Art of Baltimore Burlesque · MICA Exhibition</div>
+            <p class="show-card-venue-date">2014 · The Lyric Opera House · MICA</p>
+          </div>
+          <div class="show-card-body">
+            <p class="show-card-desc">
+              In 2014, the Maryland Institute College of Art celebrated Baltimore's burlesque scene
+              with a landmark exhibition — "Workin' the Tease" — featuring portraits, costumes, and
+              an entire wall of pasties in the hallowed halls of The Lyric Opera House. Gilded Lily was
+              a featured participant, with Maria Bella helping develop the exhibition seminar.
+              "It was like A League of Their Own," Maria later said. "It was wonderful. We all cried
+              being up on that stage for the first time."
+            </p>
+            <p class="show-card-cast"><strong>Featured:</strong> Maria Bella · The full Baltimore burlesque community · Exhibition curated through MICA</p>
+          </div>
+          <div class="show-details">
+            <div class="show-detail-item"><span class="show-detail-icon">📍</span><span>The Lyric Opera House · Maryland Institute College of Art</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">🏛️</span><span>Exhibitions: portraits, costumes, and a full wall of pasties</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE CARNIVALESQUE ROADSHOW (Touring) -->
+      <div class="col-md-6 col-lg-4 show-item" data-cat="touring">
+        <div class="show-card cat-travel">
+          <div class="show-card-header">
+            <span class="show-cat-badge">Touring Production</span>
+            <div class="show-card-title">The Carnivalesque Roadshow</div>
+            <div class="show-card-subtitle" style="font-family:'Playfair Display',serif; font-style:italic; color:var(--smoke); font-size:.95rem; margin-bottom:.4rem;">East Coast Touring Variety Show</div>
+            <p class="show-card-venue-date">Multiple Years · East Coast</p>
+          </div>
+          <div class="show-card-body">
+            <p class="show-card-desc">
+              Maria Bella's touring production co-created with Armitage Shanks took the Gilded Lily
+              spirit on the road up and down the East Coast — blending burlesque, sideshow, circus
+              arts, and variety performance. The Carnivalesque Roadshow was featured at the Festival
+              of Doom in Washington DC and at the Asheville Americana Burlesque &amp; Sideshow Festival,
+              and helped establish Maria Bella as a nationally touring headliner.
+            </p>
+            <p class="show-card-cast"><strong>Co-produced by:</strong> Maria Bella &amp; Armitage Shanks</p>
+          </div>
+          <div class="show-details">
+            <div class="show-detail-item"><span class="show-detail-icon">🗺️</span><span>East Coast touring — Baltimore, DC, Asheville &amp; more</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">🎪</span><span>Featured at: Festival of Doom (DC) · ABSFest (Asheville)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSTRUMENTAL TEASE w/ Brunch -->
+      <div class="col-md-6 col-lg-4 show-item" data-cat="live">
+        <div class="show-card cat-live">
+          <div class="show-card-header">
+            <span class="show-cat-badge">Live Music</span>
+            <div class="show-card-title">Instrumental Tease: Brunch Edition</div>
+            <div class="show-card-subtitle" style="font-family:'Playfair Display',serif; font-style:italic; color:var(--smoke); font-size:.95rem; margin-bottom:.4rem;">Burlesque, Brunch &amp; Live Music</div>
+            <p class="show-card-venue-date">May 17, 2015 · The Windup Space</p>
+          </div>
+          <div class="show-card-body">
+            <p class="show-card-desc">
+              A collaboration between Gilded Lily Burlesque and House of Sweetbottom that combined
+              Sunday brunch, live music from Jonny Grave &amp; the Tombstones, and full burlesque
+              performance — one of the more unusual and beloved one-off concepts the troupe ever
+              produced. A lazy Sunday afternoon transformed into full-throttle variety, with breakfast
+              drinks and tassels in equal measure.
+            </p>
+            <p class="show-card-cast"><strong>Co-produced with:</strong> House of Sweetbottom · Live music: Jonny Grave &amp; the Tombstones</p>
+          </div>
+          <div class="show-details">
+            <div class="show-detail-item"><span class="show-detail-icon">📍</span><span>The Windup Space, Station North</span></div>
+            <div class="show-detail-item"><span class="show-detail-icon">🥂</span><span>Brunch + burlesque + live band — $20 at the door</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- ══════════════════════════════════════════════
+     CHARM CITY BURLESQUE & VARIETY FESTIVAL
+══════════════════════════════════════════════ -->
+<section class="festival-section" id="festival">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5">
+        <span class="sec-eyebrow">Gilded Lily Co-Produces</span>
+        <h2 class="sec-title">Charm City Burlesque &amp; Variety Festival</h2>
+        <div class="gold-rule"></div>
+        <p class="body-copy">
+          For years, Maria Bella dreamed of a Baltimore burlesque festival — and in 2023, she made it real.
+          The inaugural Charm City Burlesque &amp; Variety Festival (CCBVF) ran September 29–October 1
+          at Creative Alliance, co-produced by Maria Bella, Tapitha Kix, and Bella La Blanc.
+        </p>
+        <p class="body-copy" style="margin-top:1rem;">
+          "We need to," Maria had told <em>Baltimore Magazine</em> years earlier. "And it's going to be
+          all-embracing to showcase all of the talents of our city. It's going to show that we're here.
+          And we're not going anywhere."
+        </p>
+        <p class="body-copy" style="margin-top:1rem;">
+          The festival combined burlesque, drag, sideshow, circus, belly dance, and other variety arts —
+          celebrating Baltimore's full creative spectrum across three nights of programming.
+          "Our festival combines burlesque, drag, sideshow, circus, belly dance and other variety arts,"
+          said Maria. "Burlesque means to turn things on its head."
+        </p>
+
+        <div style="margin-top:2rem; display:flex; flex-wrap:wrap; gap:.5rem;">
+          <span style="border:1px solid rgba(201,168,76,.3); color:var(--smoke); font-family:'Josefin Sans',sans-serif; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; padding:.4rem .9rem;">3 Nights</span>
+          <span style="border:1px solid rgba(201,168,76,.3); color:var(--smoke); font-family:'Josefin Sans',sans-serif; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; padding:.4rem .9rem;">Creative Alliance</span>
+          <span style="border:1px solid rgba(201,168,76,.3); color:var(--smoke); font-family:'Josefin Sans',sans-serif; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; padding:.4rem .9rem;">Annual · Fall</span>
+          <span style="border:1px solid rgba(201,168,76,.3); color:var(--smoke); font-family:'Josefin Sans',sans-serif; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; padding:.4rem .9rem;">BIPOC &amp; LGBTQ+ Centered</span>
+          <span style="border:1px solid rgba(201,168,76,.3); color:var(--smoke); font-family:'Josefin Sans',sans-serif; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; padding:.4rem .9rem;">DMV Community</span>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom:1rem;">Festival Programming · 2023 Inaugural Edition</p>
+
+        <div class="fest-card mb-3">
+          <div class="fest-night">Friday, Sept 29 · 8PM</div>
+          <div class="fest-title">Filthy Gorgeous Variety</div>
+          <p class="fest-desc">A celebration of the weird and twisted side of Baltimore's burlesque and variety scene. Expect to be titillated and uncomfortable at the same time — in the most delicious way possible. Hosted by Maki Roll &amp; Kittie Glitter. Featuring Ruby Rockafella, Tapitha Kix, and BeBe Bardeaux from DC.</p>
+        </div>
+
+        <div class="fest-card mb-3">
+          <div class="fest-night">Saturday, Sept 30 · 8PM</div>
+          <div class="fest-title">The Tell-Tale Masquerade</div>
+          <p class="fest-desc">Don your finest attire and join the sinister mischief makers and the dreamers on a journey into all that is dark and whimsy. Burlesque, belly dance, sideshow, circus, and drag — followed by a dance party with DJ Villainess spinning dark beats and hypnotic rhythms. Hosted by Eden &amp; Aurora Gorealis.</p>
+        </div>
+
+        <div class="fest-card">
+          <div class="fest-night">Sunday, Oct 1 · 2PM</div>
+          <div class="fest-title">Drag Me To The Stage</div>
+          <p class="fest-desc">From underground scene to pop culture phenomenon, drag shows have had many faces. Featuring drag glitterati from across the DMV area — filled with music and dance and hosted by Betty O'Hellno, with a featured performance by Drag Legend Cinnamon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- ══════════════════════════════════════════════
+     TOURING & SPECIAL APPEARANCES
+══════════════════════════════════════════════ -->
+<section class="touring-section" id="touring">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="sec-eyebrow">Beyond Baltimore</span>
+      <h2 class="sec-title">Touring &amp; Special Appearances</h2>
+      <div class="gold-rule center"></div>
+      <p class="body-copy" style="max-width:560px; margin:.8rem auto 0;">
+        Gilded Lily has always been Baltimore first — but the spotlight has a way of expanding.
+        Here are some of the troupe's most notable out-of-town and special event appearances.
+      </p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-6">
+
+        <div class="tour-row">
+          <div class="tour-icon">🗽</div>
+          <div>
+            <div class="tour-name">New York Burlesque Festival</div>
+            <div class="tour-meta">New York City · 2012 &amp; 2013</div>
+            <p class="tour-desc">Maria Bella earned silver at the NYC Burlesque Festival star search at The Ottobar, earning a full invitation to perform alongside 150 national acts at the New York Burlesque Festival. She returned as a featured artist the following year.</p>
+          </div>
+        </div>
+
+        <div class="tour-row">
+          <div class="tour-icon">🍁</div>
+          <div>
+            <div class="tour-name">Toronto Burlesque Festival</div>
+            <div class="tour-meta">Toronto, Canada · Featured Artist</div>
+            <p class="tour-desc">Maria Bella was selected as a featured artist at one of North America's most prestigious burlesque festivals, taking Gilded Lily's Baltimore spirit across the border for an international audience.</p>
+          </div>
+        </div>
+
+        <div class="tour-row">
+          <div class="tour-icon">🇬🇧</div>
+          <div>
+            <div class="tour-name">London Burlesque Festival</div>
+            <div class="tour-meta">London, United Kingdom · 2014</div>
+            <p class="tour-desc">One of the most prestigious burlesque festivals in the world — and Maria Bella was selected to perform on its stage in 2014, making Gilded Lily an internationally recognized name in neo-burlesque.</p>
+          </div>
+        </div>
+
+        <div class="tour-row">
+          <div class="tour-icon">🏔️</div>
+          <div>
+            <div class="tour-name">Asheville Americana Burlesque &amp; Sideshow Festival</div>
+            <div class="tour-meta">Asheville, NC · Headliner &amp; Artist of the Year 2016</div>
+            <p class="tour-desc">Maria Bella was named Artist of the Year by ABSFest in 2016 — and also served as the festival's headliner that same year. A career high-water mark for Gilded Lily's founder.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-6">
+
+        <div class="tour-row">
+          <div class="tour-icon">🎭</div>
+          <div>
+            <div class="tour-name">Kennedy Center for the Performing Arts</div>
+            <div class="tour-meta">Washington, DC · Opening Act</div>
+            <p class="tour-desc">Maria Bella opened for Storm Large of Pink Martini at the Kennedy Center — perhaps the most prestigious single venue appearance in Gilded Lily history, bringing burlesque to one of America's great concert halls.</p>
+          </div>
+        </div>
+
+        <div class="tour-row">
+          <div class="tour-icon">🌵</div>
+          <div>
+            <div class="tour-name">Texas Burlesque Festival</div>
+            <div class="tour-meta">Texas</div>
+            <p class="tour-desc">Maria Bella took Gilded Lily's signature blend of classic cabaret and neo-burlesque to Texas, continuing to build the troupe's national profile through festival touring.</p>
+          </div>
+        </div>
+
+        <div class="tour-row">
+          <div class="tour-icon">🌹</div>
+          <div>
+            <div class="tour-name">Southern Fried Burlesque Festival</div>
+            <div class="tour-meta">Atlanta, GA · Queen Category Finalist</div>
+            <p class="tour-desc">Competed and performed in the Queen category at one of the South's most celebrated burlesque festivals — another milestone in Maria Bella's decade-spanning festival touring career.</p>
+          </div>
+        </div>
+
+        <div class="tour-row">
+          <div class="tour-icon">🦅</div>
+          <div>
+            <div class="tour-name">Dance Place</div>
+            <div class="tour-meta">Washington, DC · 2019 Return to Glamour</div>
+            <p class="tour-desc">Gilded Lily's full company debut at Dance Place DC, a respected performing arts center rooted in movement arts. The show — Return to Glamour — featured live music and a multi-city cast, and was described by Dance Place as "a celebration of returns."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- ══════════════════════════════════════════════
+     THE AUDIENCE EXPERIENCE
+══════════════════════════════════════════════ -->
+<section class="experience-section" id="experience">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="sec-eyebrow">What It's Like to Be There</span>
+      <h2 class="sec-title">The Gilded Lily Experience</h2>
+      <div class="gold-rule center"></div>
+      <p class="body-copy" style="max-width:560px; margin:.8rem auto 0;">
+        Every show is its own world. But some things are always true about a night with Gilded Lily.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="exp-card">
+          <div class="exp-icon">🍾</div>
+          <div class="exp-title">Arrive Early</div>
+          <p class="exp-body">Pre-show programming — cocktail hours, interactive games, vendor markets, and warm-up entertainment — are part of the Gilded Lily tradition. Get there at doors to get the full experience.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="exp-card">
+          <div class="exp-icon">👗</div>
+          <div class="exp-title">Dress the Part</div>
+          <p class="exp-body">Audiences are encouraged to don their finest frocks and dapper duds. Retro glamour, vintage flair, and creative costuming are all celebrated — the show doesn't end at the stage.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="exp-card">
+          <div class="exp-icon">📣</div>
+          <div class="exp-title">Cheer Out Loud</div>
+          <p class="exp-body">"Laugh out loud, cheer, hoot and holler" — this isn't a quiet concert. Gilded Lily audiences participate. Your energy feeds the performers. The room becomes part of the show.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="exp-card">
+          <div class="exp-icon">🤝</div>
+          <div class="exp-title">Respect the Stage</div>
+          <p class="exp-body">Consent always matters. Always obtain permission before interacting with performers. Gilded Lily shows are a space of celebration, but also of respect — for the artists and for each other.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Ticket info callout -->
+    <div style="margin-top:3rem; border:1px solid rgba(201,168,76,.2); padding:2.5rem; display:flex; flex-wrap:wrap; gap:2rem; align-items:center; justify-content:space-between;">
+      <div>
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:.65rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom:.5rem;">Typical Ticket Options</p>
+        <div style="display:flex; flex-wrap:wrap; gap:1.5rem;">
+          <div>
+            <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.3rem; color:var(--champagne);">General Admission</div>
+            <div style="font-family:'Josefin Sans',sans-serif; font-size:.62rem; letter-spacing:.15em; color:var(--smoke);">$28 – $41 · Members receive discount</div>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.3rem; color:var(--champagne);">Champagne Package for 2</div>
+            <div style="font-family:'Josefin Sans',sans-serif; font-size:.62rem; letter-spacing:.15em; color:var(--smoke);">$85 – $91 · Includes bubbly &amp; chocolates</div>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.3rem; color:var(--champagne);">Champagne Table</div>
+            <div style="font-family:'Josefin Sans',sans-serif; font-size:.62rem; letter-spacing:.15em; color:var(--smoke);">$165 – $171 · Reserved table for 2, full bottle</div>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.3rem; color:var(--champagne);">Live Stream</div>
+            <div style="font-family:'Josefin Sans',sans-serif; font-size:.62rem; letter-spacing:.15em; color:var(--smoke);">$15 – $19 · Watch from home</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://creativealliance.org" target="_blank" class="btn-gilded">Get Tickets at Creative Alliance →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA BAND ══ -->
+<div class="cta-band">
+  <div class="container position-relative">
+    <h3 style="font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(1.6rem,3vw,2.4rem); color:var(--champagne); margin-bottom:.5rem;">Every Show Is Different. Every Show Is Gilded Lily.</h3>
+    <p style="color:rgba(240,223,160,.75); font-family:'Cormorant Garamond',serif; font-size:1.1rem; margin-bottom:2rem; font-style:italic;">
+      There's only one way to really understand what Gilded Lily does. Come see it.
+    </p>
+    <div class="d-flex flex-wrap gap-3 justify-content-center">
+      <a href="https://creativealliance.org" target="_blank" class="btn-gilded btn-gilded-light">Get Tickets</a>
+      <a href="http://www.gildedlilyburlesque.com" target="_blank" class="btn-gilded">Official Website</a>
+      <a href="gilded-lily-about.html" class="btn-gilded">About the Troupe</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">Gilded Lily Burlesque</div>
+        <div class="footer-sub">Fan Tribute Site · Baltimore, MD · Est. 2007</div>
+        <p style="color:var(--smoke); font-size:.88rem; line-height:1.8;">
+          An unofficial tribute to Baltimore's finest — celebrating nearly two decades of glitter, grit, and genuine artistry. Founded by Maria Bella. Performing since 2007.
+        </p>
+      </div>
+      <div class="col-lg-2 offset-lg-1">
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom:.9rem;">Pages</p>
+        <a href="gilded-lily-burlesque.html" class="footer-link">Home</a>
+        <a href="gilded-lily-about.html" class="footer-link">About</a>
+        <a href="gilded-lily-burlesque.html#performers" class="footer-link">Performers</a>
+        <a href="#" class="footer-link">Shows</a>
+        <a href="gilded-lily-burlesque.html#venues" class="footer-link">Venues</a>
+        <a href="gilded-lily-burlesque.html#press" class="footer-link">Press</a>
+      </div>
+      <div class="col-lg-2">
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom:.9rem;">Shows</p>
+        <a href="#flagship" class="footer-link">Tassels &amp; Champagne</a>
+        <a href="#catalogue" class="footer-link">Show Archive</a>
+        <a href="#festival" class="footer-link">CCBVF Festival</a>
+        <a href="#touring" class="footer-link">Touring</a>
+      </div>
+      <div class="col-lg-3">
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:.63rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom:.9rem;">Get Tickets</p>
+        <a href="https://creativealliance.org" target="_blank" class="footer-link">Creative Alliance</a>
+        <a href="http://www.gildedlilyburlesque.com" target="_blank" class="footer-link">Gilded Lily Official Site</a>
+        <a href="https://baltimore.org" target="_blank" class="footer-link">Visit Baltimore Events</a>
+      </div>
+    </div>
+    <p class="footer-disclaimer">
+      This is an unofficial fan tribute website. Not affiliated with Gilded Lily Burlesque, Maria Bella, or Creative Alliance.<br>
+      All content sourced from Baltimore Magazine, Baltimore Post-Examiner, Visit Baltimore, Dance Place DC, Baltimore OUTloud, Baltimore Fishbowl, and other public sources.<br>
+      Visit <a href="http://www.gildedlilyburlesque.com" target="_blank" style="color:var(--gold);">gildedlilyburlesque.com</a> for official show information and tickets.
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const showItems  = document.querySelectorAll('.show-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      // Handle section visibility
+      const flagshipSection = document.getElementById('flagship');
+      const festivalSection = document.getElementById('festival');
+      const touringSection  = document.getElementById('touring');
+      const catalogueSection= document.getElementById('catalogue');
+
+      if (filter === 'all') {
+        flagshipSection.style.display = '';
+        festivalSection.style.display = '';
+        touringSection.style.display  = '';
+        catalogueSection.style.display = '';
+        showItems.forEach(item => item.style.display = '');
+      } else if (filter === 'flagship') {
+        flagshipSection.style.display = '';
+        festivalSection.style.display = 'none';
+        touringSection.style.display  = 'none';
+        catalogueSection.style.display = 'none';
+      } else if (filter === 'festival') {
+        flagshipSection.style.display = 'none';
+        festivalSection.style.display = '';
+        touringSection.style.display  = 'none';
+        catalogueSection.style.display = 'none';
+      } else if (filter === 'touring') {
+        flagshipSection.style.display = 'none';
+        festivalSection.style.display = 'none';
+        touringSection.style.display  = '';
+        catalogueSection.style.display = 'none';
+      } else {
+        flagshipSection.style.display = 'none';
+        festivalSection.style.display = 'none';
+        touringSection.style.display  = 'none';
+        catalogueSection.style.display = '';
+        showItems.forEach(item => {
+          const cats = item.dataset.cat || '';
+          item.style.display = cats.includes(filter) ? '' : 'none';
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>
